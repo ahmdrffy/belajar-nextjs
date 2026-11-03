@@ -36,7 +36,7 @@ export default function FormProfilSiswa({ siswa, daftarKelas }) {
         </div>
       )}
 
-      <form action={formAction} encType="multipart/form-data" className="space-y-5">
+      <form action={formAction} className="space-y-5">
         {/* Foto Profil Upload & Preview */}
         <div className="flex flex-col sm:flex-row items-center gap-5 p-4 bg-gray-50 rounded-lg border border-gray-200">
           <div className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-200 border-2 border-gray-300 flex items-center justify-center text-gray-400 shrink-0">
