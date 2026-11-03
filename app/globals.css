@@ -1,0 +1,9 @@
+@import "tailwindcss";
+
+/* 
+  Semua styling telah dimigrasikan dari CSS native ke utility classes Tailwind CSS
+  secara langsung di masing-masing komponen dan halaman.
+*/
+html,body {
+  min-height: 100%;
+}

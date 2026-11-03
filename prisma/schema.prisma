@@ -1,0 +1,43 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client"
+  output   = "../app/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model pm_siswa {
+  no_urut       Int       @id @default(autoincrement())
+  nama_siswa    String
+  jenis_kelamin String
+  alamat        String?
+  telepon       String?
+  foto          String?
+  id_kelas      Int?
+  kelas         pm_kelas? @relation(fields: [id_kelas], references: [id_kelas])
+  user_id       Int?      @unique
+  user          user?     @relation(fields: [user_id], references: [id])
+}
+
+model pm_kelas {
+  id_kelas   Int        @id @default(autoincrement())
+  nama_kelas String     @unique
+  siswa      pm_siswa[]
+}
+
+enum Role {
+  admin
+  siswa
+}
+
+model user {
+  id       Int       @id @default(autoincrement())
+  email    String    @unique
+  password String
+  role     Role      @default(siswa)
+  siswa    pm_siswa?
+}
