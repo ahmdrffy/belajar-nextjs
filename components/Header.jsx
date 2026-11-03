@@ -50,6 +50,12 @@ export default async function Header() {
                 >
                   Home
                 </Link>
+                <Link 
+                  href="/about"
+                  className="hover:text-[#00aaff] transition-colors duration-300"
+                >
+                  About
+                </Link>
                 <Link
                   href="/profil"
                   className="text-blue-400 hover:text-blue-300 transition-colors duration-300"

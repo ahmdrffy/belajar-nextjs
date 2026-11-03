@@ -1,16 +1,11 @@
 import { prisma } from "@/lib/prisma";
-<<<<<<< HEAD
 import { editSiswa } from "../../actions";
 import Link from "next/link";
-=======
-import { editSiswa } from "@/app/admin/actions";
->>>>>>> 2a20375c799ec38d5f0d369144a518a50394a436
 
 export default async function EditSiswaPage({ params }) {
   const { no_urut } = await params;
   const id = Number(no_urut);
 
-<<<<<<< HEAD
   // 1. Ambil data siswa yang ingin diedit
   const siswa = await prisma.pm_siswa.findUnique({
     where: { no_urut: id },
@@ -315,42 +310,3 @@ export default async function EditSiswaPage({ params }) {
     </div>
   );
 }
-=======
-  const siswa = await prisma.pm_siswa.findUnique({
-    where: { no_urut: id },
-  });
-
-  return (
-    <div>
-      <h2>Edit Siswa #{siswa.no_urut}</h2>
-      <form action={editSiswa}>
-        <input type="hidden" name="no_urut" value={siswa.no_urut} />
-        <div>
-          <label>Nama Siswa: </label>
-          <input
-            type="text"
-            name="nama_siswa"
-            defaultValue={siswa.nama_siswa}
-            required
-          />
-        </div>
-
-        <div>
-          <label>Jenis Kelamin: </label>
-          <select
-            name="jenis_kelamin"
-            defaultValue={siswa.jenis_kelamin}
-            required
-          >
-            <option value="Laki-Laki">Laki-Laki</option>
-            <option value="Perempuan">Perempuan</option>
-          </select>
-        </div>
-
-        <button type="submit">Simpan Perubahan</button>
-      </form>
-    </div>
-  );
-}
-
->>>>>>> 2a20375c799ec38d5f0d369144a518a50394a436
